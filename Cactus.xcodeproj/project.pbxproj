@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		C9E0B18B2B06974100318508 /* CactusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B18A2B06974100318508 /* CactusApp.swift */; };
-		C9E0B18D2B06974100318508 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B18C2B06974100318508 /* ContentView.swift */; };
-		C9E0B18F2B06974100318508 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B18E2B06974100318508 /* Item.swift */; };
+		C9E0B18D2B06974100318508 /* CactusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B18C2B06974100318508 /* CactusView.swift */; };
 		C9E0B1912B06974100318508 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9E0B1902B06974100318508 /* Assets.xcassets */; };
 		C9E0B1952B06974100318508 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9E0B1942B06974100318508 /* Preview Assets.xcassets */; };
 		C9E0B19F2B06974100318508 /* CactusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B19E2B06974100318508 /* CactusTests.swift */; };
 		C9E0B1A92B06974100318508 /* CactusUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1A82B06974100318508 /* CactusUITests.swift */; };
 		C9E0B1AB2B06974100318508 /* CactusUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1AA2B06974100318508 /* CactusUITestsLaunchTests.swift */; };
+		C9E0B1B82B06980E00318508 /* AuthenticationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1B72B06980E00318508 /* AuthenticationManager.swift */; };
+		C9E0B1BC2B06983900318508 /* CactusModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1BB2B06983900318508 /* CactusModel.swift */; };
+		C9E0B1BE2B06984300318508 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1BD2B06984300318508 /* RealmManager.swift */; };
+		C9E0B1C12B0699C000318508 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = C9E0B1C02B0699C000318508 /* Realm */; };
+		C9E0B1C32B0699C000318508 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C9E0B1C22B0699C000318508 /* RealmSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,8 +41,7 @@
 /* Begin PBXFileReference section */
 		C9E0B1872B06974100318508 /* Cactus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cactus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9E0B18A2B06974100318508 /* CactusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusApp.swift; sourceTree = "<group>"; };
-		C9E0B18C2B06974100318508 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		C9E0B18E2B06974100318508 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		C9E0B18C2B06974100318508 /* CactusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusView.swift; sourceTree = "<group>"; };
 		C9E0B1902B06974100318508 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9E0B1922B06974100318508 /* Cactus.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cactus.entitlements; sourceTree = "<group>"; };
 		C9E0B1942B06974100318508 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -47,6 +50,9 @@
 		C9E0B1A42B06974100318508 /* CactusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CactusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9E0B1A82B06974100318508 /* CactusUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusUITests.swift; sourceTree = "<group>"; };
 		C9E0B1AA2B06974100318508 /* CactusUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		C9E0B1B72B06980E00318508 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
+		C9E0B1BB2B06983900318508 /* CactusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusModel.swift; sourceTree = "<group>"; };
+		C9E0B1BD2B06984300318508 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9E0B1C32B0699C000318508 /* RealmSwift in Frameworks */,
+				C9E0B1C12B0699C000318508 /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,9 +105,7 @@
 		C9E0B1892B06974100318508 /* Cactus */ = {
 			isa = PBXGroup;
 			children = (
-				C9E0B18A2B06974100318508 /* CactusApp.swift */,
-				C9E0B18C2B06974100318508 /* ContentView.swift */,
-				C9E0B18E2B06974100318508 /* Item.swift */,
+				C9E0B1BA2B06982100318508 /* Main */,
 				C9E0B1902B06974100318508 /* Assets.xcassets */,
 				C9E0B1922B06974100318508 /* Cactus.entitlements */,
 				C9E0B1932B06974100318508 /* Preview Content */,
@@ -132,6 +138,26 @@
 			path = CactusUITests;
 			sourceTree = "<group>";
 		};
+		C9E0B1B92B06981800318508 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				C9E0B1B72B06980E00318508 /* AuthenticationManager.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		C9E0B1BA2B06982100318508 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C9E0B18A2B06974100318508 /* CactusApp.swift */,
+				C9E0B18C2B06974100318508 /* CactusView.swift */,
+				C9E0B1BB2B06983900318508 /* CactusModel.swift */,
+				C9E0B1B92B06981800318508 /* Authentication */,
+				C9E0B1BD2B06984300318508 /* RealmManager.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -148,6 +174,10 @@
 			dependencies = (
 			);
 			name = Cactus;
+			packageProductDependencies = (
+				C9E0B1C02B0699C000318508 /* Realm */,
+				C9E0B1C22B0699C000318508 /* RealmSwift */,
+			);
 			productName = Cactus;
 			productReference = C9E0B1872B06974100318508 /* Cactus.app */;
 			productType = "com.apple.product-type.application";
@@ -220,6 +250,9 @@
 				Base,
 			);
 			mainGroup = C9E0B17E2B06974100318508;
+			packageReferences = (
+				C9E0B1BF2B0699C000318508 /* XCRemoteSwiftPackageReference "realm-swift" */,
+			);
 			productRefGroup = C9E0B1882B06974100318508 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -262,8 +295,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9E0B18D2B06974100318508 /* ContentView.swift in Sources */,
-				C9E0B18F2B06974100318508 /* Item.swift in Sources */,
+				C9E0B1BC2B06983900318508 /* CactusModel.swift in Sources */,
+				C9E0B1B82B06980E00318508 /* AuthenticationManager.swift in Sources */,
+				C9E0B1BE2B06984300318508 /* RealmManager.swift in Sources */,
+				C9E0B18D2B06974100318508 /* CactusView.swift in Sources */,
 				C9E0B18B2B06974100318508 /* CactusApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -621,6 +656,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C9E0B1BF2B0699C000318508 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C9E0B1C02B0699C000318508 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C9E0B1BF2B0699C000318508 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		C9E0B1C22B0699C000318508 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C9E0B1BF2B0699C000318508 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C9E0B17F2B06974100318508 /* Project object */;
 }
