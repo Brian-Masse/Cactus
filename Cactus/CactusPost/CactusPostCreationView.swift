@@ -10,39 +10,41 @@ import SwiftUI
 
 struct CactusPostCreationView: View {
     
+//    MARK: Vars
     @State var postTitle: String = ""
     @State var postDescription: String = ""
     
+//    MARK: Struct Methods
+    private func submit() {
+        let post = CactusPost(ownerID: CactusModel.ownerID,
+                              postTitle: postTitle,
+                              postDescription: postDescription)
+        RealmManager.addObject(post)
+    }
     
+    
+//    MARK: Body
     var body: some View {
         
         
         VStack(alignment: .leading) {
             
-            Text("Create Post")
+            HStack {
+                UniversalText("Create Post", size: Constants.UITitleTextSize, font: Constants.titleFont, true)
+                Spacer()
+            }
+            .padding(.bottom, 7)
             
-            TextField("title", text: $postTitle, axis: .vertical)
-                .lineLimit(1)
-            
-            TextField("description", text: $postDescription, axis: .vertical)
-                .lineLimit(1...5)
-            
-            Text("Create")
-                .onTapGesture {
-                    
-                    let post = CactusPost(ownerID: CactusModel.ownerID,
-                                          postTitle: postTitle,
-                                          postDescription: postDescription)
-                    RealmManager.addObject(post)
-                    
-//                    let testObject = TestObject(ownerID: CactusModel.ownerID, name: "hello world")
-//                    RealmManager.addObject(testObject)
-                    
-                }
+            TextFieldWithPrompt(title: "title", binding: $postTitle)
+
+            TextFieldWithPrompt(title: "description", binding: $postDescription)
+        
+            UniversalButton(label: "Create", icon: "arrow.checkmark") {
+                submit()
+            }
+                
+            Spacer()
         }
-        
-        
+        .padding()
     }
-    
-    
 }

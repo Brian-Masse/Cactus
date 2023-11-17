@@ -16,6 +16,7 @@ struct MainView: View {
     let cactusProfile = CactusModel.shared.cactusProfile!
     
     @State var showingProfileView: Bool = false
+    @State var showingPostCreationView: Bool = false
     
     
 //    MARK: Body
@@ -24,30 +25,30 @@ struct MainView: View {
     
         VStack(alignment: .leading) {
             
-            UniversalButton(label: "profile", icon: "person") { showingProfileView = true }
+            UniversalText("Cactus", size: Constants.UITitleTextSize, font: Constants.titleFont, true)
             
-            Text("Posts")
-                .onTapGesture {
-                    
-                    let posts: [CactusPost] = RealmManager.retrieveObjects()
-                    print(posts.count)
+            ScrollView(.vertical) {
+                VStack {
+                    ForEach( posts ) { post in
+                        CactusPostView(post: post)
+                    }
                 }
-            
-            ForEach( posts ) { post in
-                CactusPostView(post: post)
-                Text("hello")
             }
             
-            Text("Creation View")
-            
-            CactusPostCreationView()
-            
             Spacer()
-            UniversalText( CactusModel.ownerID, size: Constants.UISmallTextSize, font: Constants.mainFont )
             
+            HStack {
+                UniversalButton(label: "profile", icon: "person") { showingProfileView = true }
+                UniversalButton(label: "Post", icon: "plus") { showingPostCreationView = true }
+                
+            }
+            .padding(.bottom)
         }
         .sheet(isPresented: $showingProfileView) {
             CactusProfileView(profile: cactusProfile)
+        }
+        .sheet(isPresented: $showingPostCreationView) {
+            CactusPostCreationView()
         }
         
         

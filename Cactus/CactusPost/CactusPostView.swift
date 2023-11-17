@@ -14,18 +14,18 @@ struct CactusPostView: View {
     
     var body: some View {
         
-        
         VStack(alignment: .leading) {
 
-            Text( post.postTitle )
-            Text( post.postDescription )
+            HStack {
+                UniversalText(post.postTitle, size: Constants.UISubHeaderTextSize, font: Constants.titleFont, true)
+                Spacer()
+            }
+            .padding(.bottom, 5)
+            UniversalText( post.postDescription, size: Constants.UIDefaultTextSize, font: Constants.mainFont )
             
         }
         .padding()
-        .background(
-            Rectangle()
-                .foregroundStyle(.gray)
-        )
+        .secondaryOpaqueRectangularBackground()
         
     }
     
