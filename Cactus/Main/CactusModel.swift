@@ -16,7 +16,7 @@ class CactusModel: ObservableObject {
     static let authenticationManager: AuthenticationManager = AuthenticationManager()
     
     static var ownerID: String {
-        realmManager.currentUser(enumAppID: .cactusMain)?.id ?? ""
+        realmManager.currentUser()?.id ?? ""
     }
     
 //    MARK: State
@@ -32,7 +32,7 @@ class CactusModel: ObservableObject {
         }
     }
     
-    @Published var appState: AppState = .authenitcation
+    @Published private(set) var appState: AppState = .authenitcation
     
 //    MARK: Vars
     
@@ -66,13 +66,18 @@ class CactusModel: ObservableObject {
     }
     
     @MainActor
-    func postProfileCreationIntialization() {
+    func postProfileCreationIntialization(_ profile: CactusProfile) {
+        self.cactusProfile = profile
         self.appState = .app
     }
     
 //    MARK: Class Methods
     func setProfile(_ profile: CactusProfile) {
         self.cactusProfile = profile
+    }
+    
+    func setAppState( _ state: AppState ) {
+        self.appState = state
     }
     
 }

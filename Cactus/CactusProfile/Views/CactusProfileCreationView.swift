@@ -19,10 +19,11 @@ struct CactusProfileCreationView: View {
     @State var email: String = ""
     @State var phoneNumber: Int = 0
     
-    @State var icon: String = ""
+    @State var icon: String = "greetingcard"
     
     
 //    MARK: Struct Methods
+    @MainActor
     private func submit() {
         
         let cactusProfile = CactusProfile(ownerID: CactusModel.ownerID,
@@ -35,28 +36,33 @@ struct CactusProfileCreationView: View {
         
         RealmManager.addObject(cactusProfile)
         
+        CactusModel.shared.postProfileCreationIntialization(cactusProfile)
     }
     
     
 //    MARK: Body
     var body: some View {
         
-        
         VStack(alignment: .leading) {
             
-            TextField("first Name", text: $firstName)
-            TextField("last Name", text: $lastName)
-            TextField("userName", text: $userName)
+            HStack {
+                UniversalText("Create Profile", size: Constants.UITitleTextSize, font: Constants.titleFont, true)
+                Spacer()
+            }
+            .padding(.bottom)
             
-            TextField("email", text: $email)
+            TextFieldWithPrompt(title: "First Name", binding: $firstName)
+            TextFieldWithPrompt(title: "Last Name", binding: $lastName)
+            TextFieldWithPrompt(title: "User Name", binding: $userName)
             
-            TextField("icon", text: $icon)
+            TextFieldWithPrompt(title: "email", binding: $email)
             
+            TextFieldWithPrompt(title: "icon", binding: $icon)
             
-            Text("submit")
-                .onTapGesture {
-                    submit()
-                }
+            Spacer()
+            
+            UniversalButton(label: "submit", icon: "checkmark") { submit() }
+                .padding(.bottom)
         }
     }
 }

@@ -16,10 +16,14 @@ class RealmManager {
         case cactusMain = "cactus-main-sikxw"
     }
     
-    enum SubscriptionKey: String {
+    enum SubscriptionKey: String, Identifiable, CaseIterable {
         case testObject
         case cactusPost
         case cactusProfile
+        
+        var id: String {
+            self.rawValue
+        }
     }
     
 //    MARK: Vars
@@ -33,11 +37,11 @@ class RealmManager {
 //    MARK: Convenience Functions
 //    This simply avoids having to type out the 'getCurrentUser' call on authenticationManager
 //    and provides a standard error message if no user was found
-    func currentUser(_ appID: String? = nil, enumAppID: RealmManager.AppID? = nil) -> RealmSwift.User? {
-        if let currentUser = CactusModel.authenticationManager.checkActiveUser(forApp: enumAppID == nil ? appID! : enumAppID!.rawValue ) {
+    func currentUser(_ appID: String = RealmManager.mainApp ) -> RealmSwift.User? {
+        if let currentUser = CactusModel.authenticationManager.checkActiveUser(forApp: appID ) {
             return currentUser
         }
-        print( "No user found for app: \(appID == nil ? enumAppID!.rawValue : appID!)" )
+        print( "No user found for app: \(appID)" )
         return nil
     }
     
@@ -80,6 +84,7 @@ class RealmManager {
         } catch { print("unable to open realm: \(error.localizedDescription)") }
     }
     
+    @MainActor
     private func openRealm( for appID: String, configuration: Realm.Configuration ) async {
         do {
             let realm = try await Realm(configuration: configuration)
@@ -166,7 +171,7 @@ class RealmManager {
         return foundSubscriptions != nil
     }
     
-    func removeSubscription(for appID: String, name: String) async {
+    private func removeSubscription(for appID: String, name: String) async {
             
         if let realm = self.realm(appID) {
             let subscriptions = realm.subscriptions
@@ -180,6 +185,14 @@ class RealmManager {
             } catch { print("error adding subcription: \(error)") }
         }
     }
+    
+    func clearSubscriptions(for appID: String = RealmManager.mainApp  ) async {
+        for subscriptionKey in SubscriptionKey.allCases {
+            await self.removeSubscription(for: appID, name: subscriptionKey.rawValue )
+        }
+    }
+    
+    
     
     
 //    MARK: Realm Functions

@@ -11,6 +11,8 @@ import SwiftUI
 struct CactusPostCreationView: View {
     
 //    MARK: Vars
+    @Environment(\.presentationMode) var presentationMode
+    
     @State var postTitle: String = ""
     @State var postDescription: String = ""
     
@@ -20,6 +22,8 @@ struct CactusPostCreationView: View {
                               postTitle: postTitle,
                               postDescription: postDescription)
         RealmManager.addObject(post)
+        
+        presentationMode.wrappedValue.dismiss()
     }
     
     

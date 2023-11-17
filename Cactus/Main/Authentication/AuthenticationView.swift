@@ -30,7 +30,7 @@ struct AuthenticationView: View {
     var body: some View {
         
         VStack(alignment: .leading) {
-            UniversalText("Sign Up for Cactus", size: Constants.UITitleTextSize, font: Constants.titleFont)
+            UniversalText("Sign Up for Cactus", size: Constants.UITitleTextSize, font: Constants.titleFont, true)
                 .padding(.bottom)
             
             TextFieldWithPrompt(title: "email", binding: $email)

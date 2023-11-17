@@ -186,7 +186,7 @@ struct TextFieldWithPrompt: View {
     var body: some View {
         
         VStack(alignment: .leading) {
-            UniversalText(title, size: Constants.UIHeaderTextSize, font: Constants.titleFont, true)
+            UniversalText(title, size: Constants.UISubHeaderTextSize, font: Constants.titleFont)
             
             HStack {
                 VStack {

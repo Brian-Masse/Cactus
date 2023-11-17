@@ -44,6 +44,11 @@ struct CactusProfileView: View {
             
             
             Spacer()
+            UniversalButton(label: "logout", icon: "shippingbox.and.arrow.backward") {
+                Task { await CactusModel.authenticationManager.logoutUser() }
+            }
+            .padding(.bottom)
+            
         }.padding()
     }
     

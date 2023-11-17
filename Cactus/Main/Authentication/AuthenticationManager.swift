@@ -83,6 +83,18 @@ class AuthenticationManager {
         }
         
         return nil
+    }
+    
+    @MainActor
+    func logoutUser() async {
+        if let user = CactusModel.realmManager.currentUser() {
+            do { try await user.logOut() } catch {
+                print( "error logging out: \(error.localizedDescription)" )
+            }
+        }
         
+        CactusModel.shared.setAppState(.authenitcation)
+        
+        await CactusModel.realmManager.clearSubscriptions()
     }
 }
