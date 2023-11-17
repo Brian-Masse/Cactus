@@ -7,11 +7,13 @@
 
 import SwiftUI
 import SwiftData
+import RealmSwift
 
 struct CactusView: View {
     
     @ObservedObject var cactusModel: CactusModel = CactusModel.shared
     
+    let realmManager = CactusModel.realmManager
     
     var body: some View {
     
@@ -27,17 +29,8 @@ struct CactusView: View {
                 Text( "opening the default realm" )
                 
             case .app:
-                Text( "this is the app!" )
-                
-                Text("create Test Object")
-                    .onTapGesture {
-                    
-                        
-//                        let testObject = TestObject(ownerID: CactusModel.ownerID, name: "Brian Masse")
-//                        RealmManager.addObject(testObject)
-//                        
-//                        print("this ran")
-                    }
+                MainView()
+                    .environment(\.realmConfiguration, realmManager.mainRealmConfiguration)
             }
         }
         .task { await cactusModel.initializeApp() }

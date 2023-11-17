@@ -19,6 +19,12 @@
 		C9E0B1BE2B06984300318508 /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1BD2B06984300318508 /* RealmManager.swift */; };
 		C9E0B1C12B0699C000318508 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = C9E0B1C02B0699C000318508 /* Realm */; };
 		C9E0B1C32B0699C000318508 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C9E0B1C22B0699C000318508 /* RealmSwift */; };
+		C9E0B1C52B06C20000318508 /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1C42B06C20000318508 /* AuthenticationView.swift */; };
+		C9E0B1C72B06C27900318508 /* CactusProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1C62B06C27900318508 /* CactusProfile.swift */; };
+		C9E0B1CB2B06C45500318508 /* CactusPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1CA2B06C45500318508 /* CactusPost.swift */; };
+		C9E0B1CD2B06C47800318508 /* CactusPostCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1CC2B06C47800318508 /* CactusPostCreationView.swift */; };
+		C9E0B1CF2B06C56900318508 /* CactusPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1CE2B06C56900318508 /* CactusPostView.swift */; };
+		C9E0B1D12B06C5D500318508 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1D02B06C5D500318508 /* MainView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +59,12 @@
 		C9E0B1B72B06980E00318508 /* AuthenticationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationManager.swift; sourceTree = "<group>"; };
 		C9E0B1BB2B06983900318508 /* CactusModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusModel.swift; sourceTree = "<group>"; };
 		C9E0B1BD2B06984300318508 /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		C9E0B1C42B06C20000318508 /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		C9E0B1C62B06C27900318508 /* CactusProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusProfile.swift; sourceTree = "<group>"; };
+		C9E0B1CA2B06C45500318508 /* CactusPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusPost.swift; sourceTree = "<group>"; };
+		C9E0B1CC2B06C47800318508 /* CactusPostCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusPostCreationView.swift; sourceTree = "<group>"; };
+		C9E0B1CE2B06C56900318508 /* CactusPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusPostView.swift; sourceTree = "<group>"; };
+		C9E0B1D02B06C5D500318508 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +117,8 @@
 		C9E0B1892B06974100318508 /* Cactus */ = {
 			isa = PBXGroup;
 			children = (
+				C9E0B1C92B06C44200318508 /* CactusPost */,
+				C9E0B1C82B06C27D00318508 /* CactusProfile */,
 				C9E0B1BA2B06982100318508 /* Main */,
 				C9E0B1902B06974100318508 /* Assets.xcassets */,
 				C9E0B1922B06974100318508 /* Cactus.entitlements */,
@@ -142,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				C9E0B1B72B06980E00318508 /* AuthenticationManager.swift */,
+				C9E0B1C42B06C20000318508 /* AuthenticationView.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -151,11 +166,30 @@
 			children = (
 				C9E0B18A2B06974100318508 /* CactusApp.swift */,
 				C9E0B18C2B06974100318508 /* CactusView.swift */,
+				C9E0B1D02B06C5D500318508 /* MainView.swift */,
 				C9E0B1BB2B06983900318508 /* CactusModel.swift */,
 				C9E0B1B92B06981800318508 /* Authentication */,
 				C9E0B1BD2B06984300318508 /* RealmManager.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		C9E0B1C82B06C27D00318508 /* CactusProfile */ = {
+			isa = PBXGroup;
+			children = (
+				C9E0B1C62B06C27900318508 /* CactusProfile.swift */,
+			);
+			path = CactusProfile;
+			sourceTree = "<group>";
+		};
+		C9E0B1C92B06C44200318508 /* CactusPost */ = {
+			isa = PBXGroup;
+			children = (
+				C9E0B1CA2B06C45500318508 /* CactusPost.swift */,
+				C9E0B1CC2B06C47800318508 /* CactusPostCreationView.swift */,
+				C9E0B1CE2B06C56900318508 /* CactusPostView.swift */,
+			);
+			path = CactusPost;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,11 +329,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9E0B1C72B06C27900318508 /* CactusProfile.swift in Sources */,
 				C9E0B1BC2B06983900318508 /* CactusModel.swift in Sources */,
 				C9E0B1B82B06980E00318508 /* AuthenticationManager.swift in Sources */,
+				C9E0B1CD2B06C47800318508 /* CactusPostCreationView.swift in Sources */,
+				C9E0B1C52B06C20000318508 /* AuthenticationView.swift in Sources */,
+				C9E0B1CB2B06C45500318508 /* CactusPost.swift in Sources */,
 				C9E0B1BE2B06984300318508 /* RealmManager.swift in Sources */,
+				C9E0B1D12B06C5D500318508 /* MainView.swift in Sources */,
 				C9E0B18D2B06974100318508 /* CactusView.swift in Sources */,
 				C9E0B18B2B06974100318508 /* CactusApp.swift in Sources */,
+				C9E0B1CF2B06C56900318508 /* CactusPostView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

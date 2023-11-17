@@ -20,10 +20,13 @@ class RealmManager {
     
     enum SubscriptionKey: String {
         case testObject
+        case cactusPost
     }
     
     private(set) var apps: [RealmSwift.App] = []
     private(set) var realms: Dictionary<String, Realm> = Dictionary()
+    
+    var mainRealmConfiguration: Realm.Configuration = Realm.Configuration()
     
 //    MARK: Convenience Functions
 //    This simply avoids having to type out the 'getCurrentUser' call on authenticationManager
@@ -72,9 +75,14 @@ class RealmManager {
                 self.realms[ appID ] = realm
             }
             
-        } catch {
-            print("unable to open realm: \(error.localizedDescription)")
-        }
+        } catch { print("unable to open realm: \(error.localizedDescription)") }
+    }
+    
+    private func openRealm( for appID: String, configuration: Realm.Configuration ) async {
+        do {
+            let realm = try await Realm(configuration: configuration)
+            self.realms[ appID ] = realm
+        } catch { print("unable to open realm: \(error.localizedDescription)") }
     }
     
     private func generateSyncConfiguration(for appID: String, initialSubs: @escaping @Sendable (SyncSubscriptionSet) -> Void ) async -> Realm.Configuration? {
@@ -90,13 +98,22 @@ class RealmManager {
 //    the default realm will be opened in the responsive UI
     func openInitialRealms() async {
         
-//        main realm, should not be opened here
-        await openRealm(for: RealmManager.AppID.cactusMain.rawValue) { subs in
-            let _:TestObject? = self.addGenericSubscriptionToInitialSubs(RealmManager.SubscriptionKey.testObject.rawValue, subscriptions: subs) { obj in
+        await self.setupMainConfiguration()
+        
+        await openRealm(for: RealmManager.AppID.cactusMain.rawValue, configuration: self.mainRealmConfiguration)
+        
+    }
+    
+    private func setupMainConfiguration() async {
+        
+        if let config = await generateSyncConfiguration(for: RealmManager.AppID.cactusMain.rawValue, initialSubs: { subs in
+            let _:CactusPost? = self.addGenericSubscriptionToInitialSubs(RealmManager.SubscriptionKey.cactusPost.rawValue, subscriptions: subs) { obj in
                 obj.ownerID == CactusModel.ownerID
             }
+        }) {
+            self.mainRealmConfiguration = config
+            Realm.Configuration.defaultConfiguration = config
         }
-        
         
         
     }
@@ -218,7 +235,6 @@ class RealmManager {
 //MARK: TestObject
 
 class TestObject: Object {
-    
     
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var ownerID: String = ""
