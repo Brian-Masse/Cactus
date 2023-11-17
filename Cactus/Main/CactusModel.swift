@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 class CactusModel: ObservableObject {
     
@@ -32,6 +33,8 @@ class CactusModel: ObservableObject {
     
     @Published var appState: AppState = .authenitcation
     
+    var activeColor: Color = Colors.main
+    
 //    MARK: Initialization Structure
     @MainActor
     func initializeApp() async {
@@ -41,11 +44,15 @@ class CactusModel: ObservableObject {
 //        this piece should be replaced with displaying a UI for the user to SignIn
 //        Then it should connect to the authenticationManager to log them in
 //        This is a temporary work around to just create an anonymous user to use the app
-        let user = await CactusModel.authenticationManager.getOrLoginCurrentUser(forApp: RealmManager.AppID.cactusMain.rawValue)
-        if user == nil { self.appState = .error; return }
+//        let user = await CactusModel.authenticationManager.getOrLoginCurrentUser(forApp: RealmManager.AppID.cactusMain.rawValue)
+//        if user == nil { self.appState = .error; return }
+    }
+    
+    @MainActor
+    func postAuthenitcationInitialization() async {
+        
         self.appState = .openingRealm
-        
-        
+
         await CactusModel.realmManager.openInitialRealms()
         if CactusModel.realmManager.realm() == nil { self.appState = .error; return }
         self.appState = .app

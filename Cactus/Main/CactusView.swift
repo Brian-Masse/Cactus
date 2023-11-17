@@ -23,7 +23,7 @@ struct CactusView: View {
                 Text("an error occured")
                 
             case .authenitcation:
-                Text("authenticating an anoynmous user")
+                AuthenticationView()
                 
             case .openingRealm:
                 Text( "opening the default realm" )

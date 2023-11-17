@@ -25,6 +25,15 @@
 		C9E0B1CD2B06C47800318508 /* CactusPostCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1CC2B06C47800318508 /* CactusPostCreationView.swift */; };
 		C9E0B1CF2B06C56900318508 /* CactusPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1CE2B06C56900318508 /* CactusPostView.swift */; };
 		C9E0B1D12B06C5D500318508 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1D02B06C5D500318508 /* MainView.swift */; };
+		C9E0B1D32B06EAC000318508 /* CactusProfileCreationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1D22B06EAC000318508 /* CactusProfileCreationView.swift */; };
+		C9E0B1D62B06EC8100318508 /* CactusProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1D52B06EC8100318508 /* CactusProfileView.swift */; };
+		C9E0B1E92B071A5200318508 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1E82B071A5200318508 /* Constants.swift */; };
+		C9E0B1F52B07231000318508 /* UniversalButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1EE2B07230F00318508 /* UniversalButtons.swift */; };
+		C9E0B1F62B07231000318508 /* UniversalForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1EF2B07231000318508 /* UniversalForm.swift */; };
+		C9E0B1F72B07231000318508 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1F02B07231000318508 /* Extensions.swift */; };
+		C9E0B1F82B07231000318508 /* UIUniversals.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1F12B07231000318508 /* UIUniversals.swift */; };
+		C9E0B1FA2B07231000318508 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1F32B07231000318508 /* Animations.swift */; };
+		C9E0B1FB2B07231000318508 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9E0B1F42B07231000318508 /* ViewModifiers.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +74,15 @@
 		C9E0B1CC2B06C47800318508 /* CactusPostCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusPostCreationView.swift; sourceTree = "<group>"; };
 		C9E0B1CE2B06C56900318508 /* CactusPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusPostView.swift; sourceTree = "<group>"; };
 		C9E0B1D02B06C5D500318508 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		C9E0B1D22B06EAC000318508 /* CactusProfileCreationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusProfileCreationView.swift; sourceTree = "<group>"; };
+		C9E0B1D52B06EC8100318508 /* CactusProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CactusProfileView.swift; sourceTree = "<group>"; };
+		C9E0B1E82B071A5200318508 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C9E0B1EE2B07230F00318508 /* UniversalButtons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversalButtons.swift; sourceTree = "<group>"; };
+		C9E0B1EF2B07231000318508 /* UniversalForm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversalForm.swift; sourceTree = "<group>"; };
+		C9E0B1F02B07231000318508 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		C9E0B1F12B07231000318508 /* UIUniversals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIUniversals.swift; sourceTree = "<group>"; };
+		C9E0B1F32B07231000318508 /* Animations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animations.swift; sourceTree = "<group>"; };
+		C9E0B1F42B07231000318508 /* ViewModifiers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +135,7 @@
 		C9E0B1892B06974100318508 /* Cactus */ = {
 			isa = PBXGroup;
 			children = (
+				C9E0B1D72B07183E00318508 /* Universals */,
 				C9E0B1C92B06C44200318508 /* CactusPost */,
 				C9E0B1C82B06C27D00318508 /* CactusProfile */,
 				C9E0B1BA2B06982100318508 /* Main */,
@@ -178,6 +197,7 @@
 			isa = PBXGroup;
 			children = (
 				C9E0B1C62B06C27900318508 /* CactusProfile.swift */,
+				C9E0B1D42B06EC7B00318508 /* Views */,
 			);
 			path = CactusProfile;
 			sourceTree = "<group>";
@@ -190,6 +210,29 @@
 				C9E0B1CE2B06C56900318508 /* CactusPostView.swift */,
 			);
 			path = CactusPost;
+			sourceTree = "<group>";
+		};
+		C9E0B1D42B06EC7B00318508 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C9E0B1D22B06EAC000318508 /* CactusProfileCreationView.swift */,
+				C9E0B1D52B06EC8100318508 /* CactusProfileView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		C9E0B1D72B07183E00318508 /* Universals */ = {
+			isa = PBXGroup;
+			children = (
+				C9E0B1E82B071A5200318508 /* Constants.swift */,
+				C9E0B1F32B07231000318508 /* Animations.swift */,
+				C9E0B1F02B07231000318508 /* Extensions.swift */,
+				C9E0B1F12B07231000318508 /* UIUniversals.swift */,
+				C9E0B1EE2B07230F00318508 /* UniversalButtons.swift */,
+				C9E0B1EF2B07231000318508 /* UniversalForm.swift */,
+				C9E0B1F42B07231000318508 /* ViewModifiers.swift */,
+			);
+			path = Universals;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,11 +377,20 @@
 				C9E0B1B82B06980E00318508 /* AuthenticationManager.swift in Sources */,
 				C9E0B1CD2B06C47800318508 /* CactusPostCreationView.swift in Sources */,
 				C9E0B1C52B06C20000318508 /* AuthenticationView.swift in Sources */,
+				C9E0B1D62B06EC8100318508 /* CactusProfileView.swift in Sources */,
+				C9E0B1FA2B07231000318508 /* Animations.swift in Sources */,
+				C9E0B1F52B07231000318508 /* UniversalButtons.swift in Sources */,
 				C9E0B1CB2B06C45500318508 /* CactusPost.swift in Sources */,
 				C9E0B1BE2B06984300318508 /* RealmManager.swift in Sources */,
 				C9E0B1D12B06C5D500318508 /* MainView.swift in Sources */,
 				C9E0B18D2B06974100318508 /* CactusView.swift in Sources */,
+				C9E0B1F62B07231000318508 /* UniversalForm.swift in Sources */,
 				C9E0B18B2B06974100318508 /* CactusApp.swift in Sources */,
+				C9E0B1FB2B07231000318508 /* ViewModifiers.swift in Sources */,
+				C9E0B1F82B07231000318508 /* UIUniversals.swift in Sources */,
+				C9E0B1E92B071A5200318508 /* Constants.swift in Sources */,
+				C9E0B1F72B07231000318508 /* Extensions.swift in Sources */,
+				C9E0B1D32B06EAC000318508 /* CactusProfileCreationView.swift in Sources */,
 				C9E0B1CF2B06C56900318508 /* CactusPostView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

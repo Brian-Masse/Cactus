@@ -9,9 +9,7 @@ import Foundation
 import RealmSwift
 import Realm
 
-
 class RealmManager {
-    
     
 //    MARK: Vars
     enum AppID: String {
@@ -22,6 +20,8 @@ class RealmManager {
         case testObject
         case cactusPost
     }
+    
+    static let mainApp: String = RealmManager.AppID.cactusMain.rawValue
     
     private(set) var apps: [RealmSwift.App] = []
     private(set) var realms: Dictionary<String, Realm> = Dictionary()
@@ -39,7 +39,7 @@ class RealmManager {
         return nil
     }
     
-    func realm(_ appID: String = RealmManager.AppID.cactusMain.rawValue) -> Realm? {
+    func realm(_ appID: String = RealmManager.mainApp) -> Realm? {
         if let realm = self.realms[ appID ] { return realm }
         print( "no realm found for app: \(appID)" )
         return nil
@@ -100,13 +100,13 @@ class RealmManager {
         
         await self.setupMainConfiguration()
         
-        await openRealm(for: RealmManager.AppID.cactusMain.rawValue, configuration: self.mainRealmConfiguration)
+        await openRealm(for: RealmManager.mainApp, configuration: self.mainRealmConfiguration)
         
     }
     
     private func setupMainConfiguration() async {
         
-        if let config = await generateSyncConfiguration(for: RealmManager.AppID.cactusMain.rawValue, initialSubs: { subs in
+        if let config = await generateSyncConfiguration(for: RealmManager.mainApp, initialSubs: { subs in
             let _:CactusPost? = self.addGenericSubscriptionToInitialSubs(RealmManager.SubscriptionKey.cactusPost.rawValue, subscriptions: subs) { obj in
                 obj.ownerID == CactusModel.ownerID
             }

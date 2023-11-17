@@ -10,6 +10,7 @@ import RealmSwift
 
 class CactusProfile: Object {
     
+//    MARK: Vars
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var ownerID: String = ""
     
@@ -20,4 +21,19 @@ class CactusProfile: Object {
     @Persisted var email: String = ""
     @Persisted var phoneNumber: Int = 0
     
+    @Persisted var icon: String = ""
+    
+//    MARK: Init
+    convenience init( ownerID: String, userName: String, firstName: String, lastName: String, email: String, phoneNumber: Int, icon: String ) {
+        self.init()
+        
+        self.ownerID = ownerID
+        self.userName = userName
+        self.firstName = firstName
+        self.lastName = lastName
+        self.email = email
+        self.phoneNumber = phoneNumber
+        self.icon = icon
+        
+    }
 }
