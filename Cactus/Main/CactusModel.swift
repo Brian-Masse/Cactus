@@ -23,6 +23,7 @@ class CactusModel: ObservableObject {
     enum AppState: String, Identifiable {
         case authenitcation
         case openingRealm
+        case creatingProfile
         case app
         case error
         
@@ -33,19 +34,21 @@ class CactusModel: ObservableObject {
     
     @Published var appState: AppState = .authenitcation
     
-    var activeColor: Color = Colors.main
+//    MARK: Vars
+    
+    @Published var activeColor: Color = Colors.main
+    
+    @Published private(set) var cactusProfile: CactusProfile!
     
 //    MARK: Initialization Structure
+//    This is the main logic + structure from opening the app to being signed in using it.
+//    It should also handle errors
     @MainActor
     func initializeApp() async {
-        
         CactusModel.realmManager.openInitialApps()
         
-//        this piece should be replaced with displaying a UI for the user to SignIn
-//        Then it should connect to the authenticationManager to log them in
-//        This is a temporary work around to just create an anonymous user to use the app
-//        let user = await CactusModel.authenticationManager.getOrLoginCurrentUser(forApp: RealmManager.AppID.cactusMain.rawValue)
-//        if user == nil { self.appState = .error; return }
+        let user = CactusModel.authenticationManager.checkActiveUser()
+        if user != nil { await self.postAuthenitcationInitialization() }
     }
     
     @MainActor
@@ -55,8 +58,21 @@ class CactusModel: ObservableObject {
 
         await CactusModel.realmManager.openInitialRealms()
         if CactusModel.realmManager.realm() == nil { self.appState = .error; return }
-        self.appState = .app
         
+        let profile = CactusModel.authenticationManager.checkProfile()
+        if profile == nil { self.appState = .creatingProfile }
+        else { self.appState = .app }
+    
+    }
+    
+    @MainActor
+    func postProfileCreationIntialization() {
+        self.appState = .app
+    }
+    
+//    MARK: Class Methods
+    func setProfile(_ profile: CactusProfile) {
+        self.cactusProfile = profile
     }
     
 }

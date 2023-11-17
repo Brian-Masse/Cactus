@@ -11,7 +11,7 @@ import Realm
 
 class RealmManager {
     
-//    MARK: Vars
+//    MARK: Enums + Keys
     enum AppID: String {
         case cactusMain = "cactus-main-sikxw"
     }
@@ -19,8 +19,10 @@ class RealmManager {
     enum SubscriptionKey: String {
         case testObject
         case cactusPost
+        case cactusProfile
     }
     
+//    MARK: Vars
     static let mainApp: String = RealmManager.AppID.cactusMain.rawValue
     
     private(set) var apps: [RealmSwift.App] = []
@@ -32,7 +34,7 @@ class RealmManager {
 //    This simply avoids having to type out the 'getCurrentUser' call on authenticationManager
 //    and provides a standard error message if no user was found
     func currentUser(_ appID: String? = nil, enumAppID: RealmManager.AppID? = nil) -> RealmSwift.User? {
-        if let currentUser = CactusModel.authenticationManager.getCurrentUser(forApp: enumAppID == nil ? appID! : enumAppID!.rawValue ) {
+        if let currentUser = CactusModel.authenticationManager.checkActiveUser(forApp: enumAppID == nil ? appID! : enumAppID!.rawValue ) {
             return currentUser
         }
         print( "No user found for app: \(appID == nil ? enumAppID!.rawValue : appID!)" )
@@ -108,6 +110,9 @@ class RealmManager {
         
         if let config = await generateSyncConfiguration(for: RealmManager.mainApp, initialSubs: { subs in
             let _:CactusPost? = self.addGenericSubscriptionToInitialSubs(RealmManager.SubscriptionKey.cactusPost.rawValue, subscriptions: subs) { obj in
+                obj.ownerID == CactusModel.ownerID
+            }
+            let _:CactusProfile? = self.addGenericSubscriptionToInitialSubs(RealmManager.SubscriptionKey.cactusProfile.rawValue, subscriptions: subs) { obj in
                 obj.ownerID == CactusModel.ownerID
             }
         }) {

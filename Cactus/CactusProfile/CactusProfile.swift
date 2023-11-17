@@ -36,4 +36,9 @@ class CactusProfile: Object {
         self.icon = icon
         
     }
+    
+//    MARK: Convenience Functions
+    func fullName() -> String {
+        "\(firstName) \(lastName)"
+    }
 }

@@ -25,6 +25,9 @@ struct CactusView: View {
             case .authenitcation:
                 AuthenticationView()
                 
+            case .creatingProfile:
+                CactusProfileCreationView()
+                
             case .openingRealm:
                 Text( "opening the default realm" )
                 
@@ -34,6 +37,8 @@ struct CactusView: View {
             }
         }
         .task { await cactusModel.initializeApp() }
+        .padding()
+        .universalBackground()
         
     }
     

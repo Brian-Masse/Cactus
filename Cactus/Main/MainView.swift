@@ -13,11 +13,18 @@ struct MainView: View {
     
     @ObservedResults( CactusPost.self ) var posts
     
+    let cactusProfile = CactusModel.shared.cactusProfile!
     
+    @State var showingProfileView: Bool = false
+    
+    
+//    MARK: Body
     var body: some View {
         
     
-        VStack {
+        VStack(alignment: .leading) {
+            
+            UniversalButton(label: "profile", icon: "person") { showingProfileView = true }
             
             Text("Posts")
                 .onTapGesture {
@@ -35,6 +42,12 @@ struct MainView: View {
             
             CactusPostCreationView()
             
+            Spacer()
+            UniversalText( CactusModel.ownerID, size: Constants.UISmallTextSize, font: Constants.mainFont )
+            
+        }
+        .sheet(isPresented: $showingProfileView) {
+            CactusProfileView(profile: cactusProfile)
         }
         
         

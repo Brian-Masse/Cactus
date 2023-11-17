@@ -10,6 +10,7 @@ import RealmSwift
 
 class AuthenticationManager {
     
+//    MARK: Authentication Functions
     func authenticateUser( for appID: String, credentials: RealmSwift.Credentials ) async -> RealmSwift.User? {
         
         if let app = CactusModel.realmManager.getApp( appID ) {
@@ -24,17 +25,13 @@ class AuthenticationManager {
         return nil
     }
     
-    private func checkActiveUser( forApp appID: String ) -> RealmSwift.User? {
+    func checkActiveUser( forApp appID: String = RealmManager.mainApp ) -> RealmSwift.User? {
         if let app = CactusModel.realmManager.getApp( appID ) {
             return app.currentUser
         }
         return nil
     }
-    
-    func getCurrentUser( forApp app: String ) -> RealmSwift.User? {
-        checkActiveUser(forApp: app)
-    }
-    
+
     func getOrLoginCurrentUser( forApp app: String ) async -> RealmSwift.User? {
         await authenticateUser(for: app, credentials: .anonymous)
     }
@@ -71,6 +68,20 @@ class AuthenticationManager {
         let user = await authenticateUser(for: RealmManager.mainApp, credentials: credentials)
         
         if user == nil { return "failed to authenticate user" }
+        return nil
+        
+    }
+    
+//    MARK: Profile Functions
+    func checkProfile() -> CactusProfile? {
+        
+        if let profile: CactusProfile = RealmManager.retrieveObject(where: { query in
+            query.ownerID == CactusModel.ownerID
+        }).first {
+            CactusModel.shared.setProfile(profile)
+            return profile
+        }
+        
         return nil
         
     }
