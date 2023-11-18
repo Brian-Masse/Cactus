@@ -49,7 +49,8 @@ struct CactusProfileCreationView: View {
                 UniversalText("Create Profile", size: Constants.UITitleTextSize, font: Constants.titleFont, true)
                 Spacer()
             }
-            .padding(.bottom)
+            UniversalText( CactusModel.ownerID, size: Constants.UISmallTextSize, font: Constants.mainFont )
+                .padding(.bottom)
             
             TextFieldWithPrompt(title: "First Name", binding: $firstName)
             TextFieldWithPrompt(title: "Last Name", binding: $lastName)

@@ -109,22 +109,36 @@ class RealmManager {
         
         await openRealm(for: RealmManager.mainApp, configuration: self.mainRealmConfiguration)
         
+        await updateMainConfiguration()
+        
     }
     
     private func setupMainConfiguration() async {
         
         if let config = await generateSyncConfiguration(for: RealmManager.mainApp, initialSubs: { subs in
-            let _:CactusPost? = self.addGenericSubscriptionToInitialSubs(RealmManager.SubscriptionKey.cactusPost.rawValue, subscriptions: subs) { obj in
-                obj.ownerID == CactusModel.ownerID
-            }
-            let _:CactusProfile? = self.addGenericSubscriptionToInitialSubs(RealmManager.SubscriptionKey.cactusProfile.rawValue, subscriptions: subs) { obj in
-                obj.ownerID == CactusModel.ownerID
-            }
+//            let _:CactusPost? = self.addGenericSubscriptionToInitialSubs(RealmManager.SubscriptionKey.cactusPost.rawValue, subscriptions: subs) { obj in
+//                obj.ownerID == CactusModel.ownerID
+//            }
+//            let _:CactusProfile? = self.addGenericSubscriptionToInitialSubs(RealmManager.SubscriptionKey.cactusProfile.rawValue, subscriptions: subs) { obj in
+//                obj.ownerID == CactusModel.ownerID
+//            }
         }) {
             self.mainRealmConfiguration = config
             Realm.Configuration.defaultConfiguration = config
         }
+    }
+    
+//    The initial subs field does not always work, leading to a scenario where the current User's profile will not donwload from the server
+//    manually adding those subscriptions to the realm after creating it seems to be the best way to go
+    private func updateMainConfiguration() async {
+     
+        let _:CactusPost? = await addGenericSubcriptions(for: RealmManager.mainApp, name: RealmManager.SubscriptionKey.cactusPost.rawValue) { query in
+            query.ownerID == CactusModel.ownerID
+        }
         
+        let _:CactusProfile? = await addGenericSubcriptions(for: RealmManager.mainApp, name: RealmManager.SubscriptionKey.cactusProfile.rawValue) { query in
+            query.ownerID == CactusModel.ownerID
+        }
         
     }
     

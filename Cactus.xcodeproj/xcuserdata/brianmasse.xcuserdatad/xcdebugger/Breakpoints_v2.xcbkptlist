@@ -14,8 +14,8 @@
             filePath = "Cactus/Main/RealmManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "addGenericSubscriptionToInitialSubs(_:subscriptions:query:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -98,6 +98,102 @@
             endingLineNumber = "63"
             landmarkName = "postAuthenitcationInitialization()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E5DD229A-AD39-4C0A-A5D3-8B5DB4C8D357"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cactus/Main/RealmManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
+            landmarkName = "openInitialRealms()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E5DD229A-AD39-4C0A-A5D3-8B5DB4C8D357 - 96ee1c1a59a90a9d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for Cactus.RealmManager.openInitialRealms() async -&gt; ()"
+                  moduleName = "Cactus"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brianmasse/Developer/Xcode/Cactus/Cactus/Main/RealmManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "112"
+                  endingLineNumber = "112"
+                  offsetFromSymbolStart = "88">
+               </Location>
+               <Location
+                  uuid = "E5DD229A-AD39-4C0A-A5D3-8B5DB4C8D357 - b99853d3c8518e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) await resume partial function for Cactus.RealmManager.openInitialRealms() async -&gt; ()"
+                  moduleName = "Cactus"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brianmasse/Developer/Xcode/Cactus/Cactus/Main/RealmManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "112"
+                  endingLineNumber = "112"
+                  offsetFromSymbolStart = "76">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AC8D56C8-4285-402E-A223-D5D4150BF748"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Cactus/Main/Authentication/AuthenticationManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "checkProfile()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "AC8D56C8-4285-402E-A223-D5D4150BF748 - d8d3764687979ce0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Cactus.AuthenticationManager.checkProfile() -&gt; Swift.Optional&lt;Cactus.CactusProfile&gt;"
+                  moduleName = "Cactus"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brianmasse/Developer/Xcode/Cactus/Cactus/Main/Authentication/AuthenticationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "76">
+               </Location>
+               <Location
+                  uuid = "AC8D56C8-4285-402E-A223-D5D4150BF748 - fa3b18aa2147aa44"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (RealmSwift.Query&lt;Cactus.CactusProfile&gt;) -&gt; RealmSwift.Query&lt;Swift.Bool&gt; in Cactus.AuthenticationManager.checkProfile() -&gt; Swift.Optional&lt;Cactus.CactusProfile&gt;"
+                  moduleName = "Cactus"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/brianmasse/Developer/Xcode/Cactus/Cactus/Main/Authentication/AuthenticationManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
