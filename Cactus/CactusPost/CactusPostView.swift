@@ -19,6 +19,7 @@ struct CactusPostView: View {
             HStack {
                 UniversalText(post.postTitle, size: Constants.UISubHeaderTextSize, font: Constants.titleFont, true)
                 Spacer()
+                UniversalText( post.getPostPermission().getDescription(), size: Constants.UISmallTextSize, font: Constants.mainFont)
             }
             .padding(.bottom, 5)
             UniversalText( post.postDescription, size: Constants.UIDefaultTextSize, font: Constants.mainFont )

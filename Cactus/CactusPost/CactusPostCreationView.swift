@@ -15,17 +15,42 @@ struct CactusPostCreationView: View {
     
     @State var postTitle: String = ""
     @State var postDescription: String = ""
+    @State var postPermission: CactusPost.PostPermission = .defaultPermission
     
 //    MARK: Struct Methods
     private func submit() {
         let post = CactusPost(ownerID: CactusModel.ownerID,
                               postTitle: postTitle,
-                              postDescription: postDescription)
+                              postDescription: postDescription,
+                              postPermission: postPermission)
         RealmManager.addObject(post)
         
         presentationMode.wrappedValue.dismiss()
     }
     
+//    MARK: ViewBuilders
+    @ViewBuilder
+    private func makePersmissionSelectorNode( _ persmission: CactusPost.PostPermission ) -> some View {
+        HStack {
+            Spacer()
+            UniversalText( persmission.getDescription(), size: Constants.UIDefaultTextSize, font: Constants.titleFont, true)
+            Spacer()
+        }
+        .if(persmission == postPermission) { view in view.tintRectangularBackground() }
+        .if(persmission != postPermission) { view in view.secondaryOpaqueRectangularBackground() }
+        .onTapGesture { withAnimation { postPermission = persmission } }
+    }
+    
+    @ViewBuilder
+    private func makePersmissionSelector() -> some View {
+        
+        HStack {
+            ForEach( CactusPost.PostPermission.allCases ) { content in
+                makePersmissionSelectorNode(content)
+            }
+        }
+        
+    }
     
 //    MARK: Body
     var body: some View {
@@ -42,12 +67,16 @@ struct CactusPostCreationView: View {
             TextFieldWithPrompt(title: "title", binding: $postTitle)
 
             TextFieldWithPrompt(title: "description", binding: $postDescription)
+            
+            makePersmissionSelector()
         
+            Spacer()
+            
             UniversalButton(label: "Create", icon: "arrow.checkmark") {
                 submit()
             }
-                
-            Spacer()
+            .padding(.bottom)
+            
         }
         .padding()
     }
